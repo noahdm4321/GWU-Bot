@@ -60,7 +60,7 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 	## Returns a list of all enabled commands ##
 	@commands.command()
 	async def listcogs(self, ctx):
-		base_string = '```css\n'   # Gives some styling to the list (on pc side)
+		base_string = '```css\n'
 		base_string += '\n'.join([str(cog) for cog in self.client.extensions])
 		base_string += '\n```'
 		print('\n'.join([str(cog) for cog in self.client.extensions]))
