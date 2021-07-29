@@ -2,7 +2,6 @@ import os
 import discord
 import datetime
 import asyncio
-from keep_alive import keep_alive
 from discord.ext import commands
 
 
@@ -113,9 +112,6 @@ extensions = ['cogs.cog_commands',
 if __name__ == '__main__':
 	for extension in extensions:
 		client.load_extension(extension)
-
-## Start Webserver ##
-keep_alive()
 
 ## Start Bot ##
 client.run(os.environ['DISCORD_BOT_TOKEN'])
