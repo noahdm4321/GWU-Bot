@@ -28,11 +28,11 @@ async def on_command_error(ctx, error):
 		await ctx.send("What's that last bit for? Now you're confusing me.")
 	elif isinstance(error, commands.MissingPermissions):
 		await ctx.send('You do not have permission to use that command.')
-	elif isinstance(error, [commands.MissingRole, commands.MissingAnyRole]):
+	elif isinstance(error, (commands.MissingRole, commands.MissingAnyRole)):
 		await ctx.send('You do not have the proper roles to use that command.')
 	elif isinstance(error, commands.NotOwner):
 		await ctx.send("That command can only be used by my programmer. And you're not him, are you?")
-	elif isinstance(error, [commands.CheckFailure, commands.CheckAnyFailure]):
+	elif isinstance(error, (commands.CheckFailure, commands.CheckAnyFailure)):
 		await ctx.send('No')
 	elif isinstance(error, commands.CommandNotFound):
 		await ctx.send('There is no such command in my code. Check your spelling and try again.')
@@ -48,7 +48,7 @@ async def on_command_error(ctx, error):
 		await ctx.send('Role does not exist. Please double check and try again.')
 	elif isinstance(error, commands.GuildNotFound):
 		await ctx.send('Server does not exist. Please double check and try again.')
-	elif isinstance(error, [commands.BadArgument, commands.BadBoolArgument]):
+	elif isinstance(error, (commands.BadArgument, commands.BadBoolArgument)):
 		await ctx.send('Unrecognizable argument type. Please try again.')
 	elif isinstance(error, commands.CommandOnCooldown):
 		await ctx.send('Alright, alright. Give me a second. Geez.')
@@ -56,18 +56,18 @@ async def on_command_error(ctx, error):
 		await ctx.send("What did you say? I didn't quite get that.")
 	elif isinstance(error, commands.DisabledCommand):
 		await ctx.send('That command is no longer supported. Sorry.')
-	elif isinstance(error, [commands.ExpectedClosingQuoteError, commands.InvalidEndOfQuotedStringError]):
+	elif isinstance(error, (commands.ExpectedClosingQuoteError, commands.InvalidEndOfQuotedStringError)):
 		await ctx.send("Wait. That's it? You can't leave me hanging like that.")
 	elif isinstance(error, commands.UnexpectedQuoteError):
 		await ctx.send("Ok. I don't need your sass right now. Try again without quotes.")
-	elif isinstance(error, [commands.ExtensionError, commands.ExtensionFailed]):
+	elif isinstance(error, (commands.ExtensionError, commands.ExtensionFailed)):
 		await ctx.send('Everything is failing! This is the end for me. Goodbye.')
 		await ctx.sent('https://tenor.com/view/everything-is-fine-dog-fire-burning-nothing-wrong-gif-15379714')
 		await asyncio.sleep(5)
 		await client.change_presence(status=discord.Status.offline)
 	elif isinstance(error, commands.ExtensionAlreadyLoaded):
 		await ctx.send('I already did that. You want me to do it again?')
-	elif isinstance(error, [commands.ExtensionNotFound, commands.ExtensionNotLoaded]):
+	elif isinstance(error, (commands.ExtensionNotFound, commands.ExtensionNotLoaded)):
 		await ctx.send("What's that? Sounds pretty cool.")
 	elif isinstance(error, commands.NoPrivateMessage):
 		await ctx.send('Try asking me on the sever. That might work better.')
@@ -103,8 +103,7 @@ async def on_message_delete(message):
 
 
 ## Extensions to load on startup ##
-extensions = [
-	'cogs.cog_commands', 
+extensions = ['cogs.cog_commands', 
 	'cogs.mod_commands',
 	'cogs.mod_events',
 	'cogs.server_commands',
