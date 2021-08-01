@@ -13,7 +13,7 @@ class ModCommands(commands.Cog, name='Moderator Commands'):
 
 
 	## Deletes messages from a channel ##
-	@commands.command()
+	@commands.command(aliases=['purge'])
 	@commands.has_permissions(manage_messages=True)
 	async def clear(self, ctx, amount=1):
 		await ctx.channel.purge(limit=(amount + 1))

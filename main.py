@@ -15,7 +15,7 @@ def author(ctx):
 
 @client.event 
 async def on_ready():
-	await client.change_presence(status=discord.Status.online, activity=discord.Activity(name='for . commands', type=discord.ActivityType.listening))
+	await client.change_presence(status=discord.Status.online, activity=discord.Activity(name='for commands', type=discord.ActivityType.listening))
 	print(f'[{datetime.datetime.now()}] Bot is ready: {client.user}')
 
 ## Error messages ##
