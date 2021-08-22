@@ -1,4 +1,5 @@
 import discord
+import json
 import datetime
 import asyncio
 from discord.ext import commands
@@ -123,7 +124,7 @@ async def on_message_delete(message):
 ## Extensions to load on startup ##
 extensions = ['cogs.cog_commands', 
 	'cogs.mod_commands',
-	'cogs.mod_events',
+	'cogs.welcome_message',
 	'cogs.server_commands']
 
 ## Ensures this is the file being ran ##
@@ -132,4 +133,5 @@ if __name__ == '__main__':
 		client.load_extension(extension)
 
 ## Start Bot ##
-client.run('ODY4MTAyMTgyMTI4NDcyMDc1.YPqxKA.w29bQ_IAoN49ZANu6hwodULdjcc')
+config = json.load(open("config.json"))
+client.run(config["token"])

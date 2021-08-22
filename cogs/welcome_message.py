@@ -28,7 +28,7 @@ class WelcomeMessage(commands.Cog, name='Welcome Message'):
 			'Go to <#735989626455457894> to get roles so you can be notified about specific groups and see related channels.', 
 			'It is recommend to change your discord nickname to your Gw2 account name, so that people can identify you in-game.', 
 			'Go to <#852189307031781426> to see when regular events happen.']
-		await self.client.get_channel(843186188663783470).send(f'{random.choice(first)} {random.choice(last)}')
+		await self.client.get_channel(879009714069962843).send(f'{random.choice(first)} {random.choice(last)}')
 
 
 def setup(client):

@@ -10,8 +10,8 @@ class ClockChannel(commands.Cog, name='Clock Channel'):
 			if guild.id == 446550730640195586:
 				self.channelclock = 775870306798534696
 				break
-			elif guild.id == 843186186344464414:
-				self.channelclock = 843186187018436618
+			elif guild.id == 879009710701957130:
+				self.channelclock = 879009710907482127
 				break
 		self.clock_name.start()
 		print(f'[{datetime.datetime.now()}] cogs.clock_channel online!')
