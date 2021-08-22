@@ -1,8 +1,27 @@
-import os
 import discord
 import datetime
 import asyncio
 from discord.ext import commands
+## discord.py documentation: https://discordpy.readthedocs.io/en/latest/api.html ##
+
+
+# class CustomHelpCommand(commands.HelpCommand):
+
+# 	def __init__(self):
+# 		super().__init__()
+
+# 	async def send_bot_help(self, mapping):
+# 		for cog in mapping:
+# 			await self.get_destination().send(f'{cog.qualified_name}: {[command.name for command in mapping[cog]]}')
+	
+# 	async def send_cog_help(self, cog):
+# 		await self.get_destination().send(f'{cog.qualified_name}: {[command.name for command in cog.get_commands()]}')
+
+# 	async def send_group_help(self, group):
+# 		await self.get_destination().send(f'{group.name}: {[command.name for index, command in enumerate(group.commands)]}')
+
+# 	async def send_command_help(self, command):
+# 		await self.get_destination().send(command.name)
 
 
 client = commands.Bot(command_prefix=[".", "<@!868102182128472075> "], case_insensitive=True, intents = discord.Intents.all())
@@ -105,8 +124,7 @@ async def on_message_delete(message):
 extensions = ['cogs.cog_commands', 
 	'cogs.mod_commands',
 	'cogs.mod_events',
-	'cogs.server_commands',
-	'cogs.server_events']
+	'cogs.server_commands']
 
 ## Ensures this is the file being ran ##
 if __name__ == '__main__':
@@ -114,4 +132,4 @@ if __name__ == '__main__':
 		client.load_extension(extension)
 
 ## Start Bot ##
-client.run(os.environ['DISCORD_BOT_TOKEN'])
+client.run('ODY4MTAyMTgyMTI4NDcyMDc1.YPqxKA.w29bQ_IAoN49ZANu6hwodULdjcc')

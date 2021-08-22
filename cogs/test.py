@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 
 ## These are the commands for testing ##
 
-class ModCommands(commands.Cog, name='Test'):
+class Test(commands.Cog, name='Test'):
 	
 	def __init__(self, client):
 		self.client = client
@@ -21,4 +21,4 @@ class ModCommands(commands.Cog, name='Test'):
 
 
 def setup(client):
-	client.add_cog(ModCommands(client))
+	client.add_cog(Test(client))

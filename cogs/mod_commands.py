@@ -9,7 +9,7 @@ class ModCommands(commands.Cog, name='Moderator Commands'):
 	
 	def __init__(self, client):
 		self.client = client
-	print(f'[{datetime.datetime.now()}] cogs.mod_commands online!')
+		print(f'[{datetime.datetime.now()}] cogs.mod_commands online!')
 
 
 	## Deletes messages from a channel ##

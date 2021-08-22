@@ -8,7 +8,7 @@ class ServerCommands(commands.Cog, name='Server Commands'):
 
 	def __init__(self, client):
 		self.client = client
-	print(f'[{datetime.datetime.now()}] cogs.server_commands online!')
+		print(f'[{datetime.datetime.now()}] cogs.server_commands online!')
 
 
 	## Tests the latency of the bot ##

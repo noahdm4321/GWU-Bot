@@ -8,7 +8,7 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 
 	def __init__(self, client):
 		self.client = client
-	print(f'[{datetime.datetime.now()}] cogs.cog_commands online!')
+		print(f'[{datetime.datetime.now()}] cogs.cog_commands online!')
 
 	## The default check for this cog whenever a command is used. Returns True if the command is allowed. ##
 	async def cog_check(self, ctx):  

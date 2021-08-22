@@ -3,13 +3,11 @@ import random
 from discord.ext import commands
 
 
-## These are the events for server moderation ##
-
-class ModEvents(commands.Cog, name='Moderator Events'):
+class WelcomeMessage(commands.Cog, name='Welcome Message'):
 
 	def __init__(self, client):
 		self.client = client
-	print(f'[{datetime.datetime.now()}] cogs.mod_events online!')
+		print(f'[{datetime.datetime.now()}] cogs.welcome_message online!')
 
 
 	## Sends user welcome message ##
@@ -34,4 +32,4 @@ class ModEvents(commands.Cog, name='Moderator Events'):
 
 
 def setup(client):
-	client.add_cog(ModEvents(client))
+	client.add_cog(WelcomeMessage(client))
