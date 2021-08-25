@@ -11,8 +11,8 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 		print(f'[{datetime.datetime.now()}] cogs.cog_commands online!')
 
 	## The default check for this cog whenever a command is used. Returns True if the command is allowed. ##
-	async def cog_check(self, ctx):  
-		return ctx.author.id == self.client.author_id
+	async def author_check(self, ctx):  
+		return ctx.author.id in self.client.author_id
 
 	## Reloads a cog ##
 	@commands.command()
