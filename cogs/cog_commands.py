@@ -1,4 +1,3 @@
-import datetime
 from discord.ext import commands
 
 
@@ -8,7 +7,7 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 
 	def __init__(self, client):
 		self.client = client
-		print(f'[{datetime.datetime.now()}] cogs.cog_commands online!')
+		print('cog_commands online!')
 
 	## The default check for this cog whenever a command is used. Returns True if the command is allowed. ##
 	async def author_check(self, ctx):  
@@ -16,18 +15,18 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 
 	## Reloads a cog ##
 	@commands.command()
-	async def reload(self, ctx, cog):
+	async def reload(self, ctx, cog='all'):
 		extensions = self.client.extensions
 		if cog == 'all':
 			for extension in extensions:
 				self.client.unload_extension(extension)
 				self.client.load_extension(extension)
-			print(f'[{datetime.datetime.now()}] Reloaded all cogs!')
+			print('Reloaded all cogs!')
 			await ctx.send('Reloaded all cogs!')	
 		elif cog in extensions:
 			self.client.unload_extension(cog)
 			self.client.load_extension(cog)
-			print(f'[{datetime.datetime.now()}] Reloaded {cog}!')
+			print(f'Reloaded {cog}!')
 			await ctx.send(f'Reloaded {cog}!')
 		else:
 			print(f'{cog} is not loaded!')
@@ -39,7 +38,7 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 		extensions = self.client.extensions
 		if cog in extensions:
 			self.client.unload_extension(cog)
-			print(f'[{datetime.datetime.now()}] Unloaded {cog}!')
+			print(f'Unloaded {cog}!')
 			await ctx.send(f'Unloaded {cog}!')
 		else:
 			print(f'{cog} is not loaded!')
@@ -50,7 +49,7 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 	async def load(self, ctx, cog):
 		try:
 			self.client.load_extension(cog)
-			print(f'[{datetime.datetime.now()}] Loaded {cog}!')
+			print(f'Loaded {cog}!')
 			await ctx.send(f'Loaded {cog}!')
 
 		except commands.errors.ExtensionNotFound:
@@ -63,7 +62,6 @@ class CogCommands(commands.Cog, name='Cog Commands'):
 		base_string = '```css\n'
 		base_string += '\n'.join([str(cog) for cog in self.client.extensions])
 		base_string += '\n```'
-		print('\n'.join([str(cog) for cog in self.client.extensions]))
 		await ctx.send(base_string)
 
 

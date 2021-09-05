@@ -6,7 +6,7 @@ class Clock(commands.Cog, name='Clock Channel'):
 
 	def __init__(self, client):
 		self.client = client
-		print(f'[{datetime.datetime.now()}] cogs.clock online!')
+		print('clock online!')
 
 	## The default check for this cog whenever a command is used. Returns True if the command is allowed. ##
 	async def author_check(self, ctx):  
@@ -32,12 +32,14 @@ class Clock(commands.Cog, name='Clock Channel'):
 	async def start_clock(self, ctx):
 		self.clock_name.start()
 		await ctx.send("Clock started!")
+		print("Started clock")
 
 	## Stop looping function ##
 	@commands.command()
 	async def stop_clock(self, ctx):
 		self.clock_name.cancel()
 		await ctx.send("Clock stopped!")
+		print("Stopped clock")
 
 
 def setup(client):

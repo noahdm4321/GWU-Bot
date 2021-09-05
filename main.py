@@ -1,6 +1,5 @@
 import discord
 import json
-import datetime
 import asyncio
 from discord.ext import commands
 ## discord.py documentation: https://discordpy.readthedocs.io/en/latest/api.html ##
@@ -37,7 +36,7 @@ def author_check(ctx):
 @client.event 
 async def on_ready():
 	await client.change_presence(status=discord.Status.online, activity=discord.Activity(name='for commands', type=discord.ActivityType.listening))
-	print(f'[{datetime.datetime.now()}] Bot is ready: {client.user}')
+	print(f'Bot is ready: {client.user}')
 
 ## Error messages ##
 @client.event 
@@ -131,20 +130,10 @@ async def on_command_error(ctx, error):
 		print(error)
 
 
-## Log user join message ##
-@client.event 
-async def on_member_join(member):
-	print(f'[{datetime.datetime.now()}] {member} has joined the server.')
-
-## Log user leave message ##
-@client.event 
-async def on_member_remove(member):
-	print(f'[{datetime.datetime.now()}] {member} has left the server.')
-
 ## Log messages deleted ##
 @client.event 
 async def on_message_delete(message):
-	print(f'[{datetime.datetime.now()}] Message from {message.author} deleted in #{message.channel}: "{message.clean_content}"')
+	print(f'Message from {message.author} deleted in #{message.channel}: "{message.clean_content}"')
 
 
 
@@ -152,7 +141,6 @@ async def on_message_delete(message):
 extensions = ['cogs.cog_commands', 
 	'cogs.commands.mod',
 	'cogs.commands.server',
-	'cogs.events.welcome',
 	'cogs.events.registry',
 	'cogs.events.clock']
 

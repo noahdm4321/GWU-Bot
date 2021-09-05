@@ -1,8 +1,9 @@
 #import discord
-import datetime
+#import datetime
 #import asyncio
 from discord.ext import commands#, tasks
 from database import data
+from cogs import util
 #from discord_components import DiscordComponents, ComponentsBot, Button
 
 
@@ -12,14 +13,15 @@ class Test(commands.Cog, name='Test'):
 	
 	def __init__(self, client):
 		self.client = client
-	print(f'[{datetime.datetime.now()}] cogs.test online!')
+	print('test online!')
 
 	## The default check for this cog whenever a command is used. Returns True if the command is allowed. ##
 	async def author_check(self, ctx):  
 		return ctx.author.id in self.client.author_id
 
-	
-
+	@commands.command()
+	async def test(self, ctx):
+		return
 
 
 def setup(client):

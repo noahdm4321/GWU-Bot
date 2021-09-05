@@ -4,30 +4,27 @@ import json
 
 ## read database ##
 def read(key, id):
-	with open('db.json') as json_file:
-		data = json.load(json_file)
+	with open('database/db.json', "r") as json_file:
+		data = json_file.read()
+	data = json.loads(data)
 	return data[key][id]
 
 ## write to database ##
 def write(key, id, value):
-	with open("replayScript.json", "r+") as jsonFile:
-		data = json.load(jsonFile)
-
+	with open("database/db.json", "r") as json_file:
+		data = json_file.read()
+	data = json.loads(data)
 	data[key][id] = value
-
-	jsonFile.seek(0)  # rewind
-	json.dump(data, jsonFile)
-	jsonFile.truncate()
+	with open("database/db.json", "w") as json_file:
+		json.dump(data, json_file)
 	return True
 
 ## append to database list ##
 def append(key, id, value):
-	with open("replayScript.json", "r+") as jsonFile:
-		data = json.load(jsonFile)
-
+	with open("database/db.json", "r") as json_file:
+		data = json_file.read()
+	data = json.loads(data)
 	data[key][id] = data[key][id].append(value)
-
-	jsonFile.seek(0)  # rewind
-	json.dump(data, jsonFile)
-	jsonFile.truncate()
+	with open("database/db.json", "w") as json_file:
+		json.dump(data, json_file)
 	return True
